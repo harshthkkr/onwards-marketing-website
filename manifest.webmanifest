@@ -1,0 +1,16 @@
+{
+  "name": "Onwards",
+  "short_name": "Onwards",
+  "description": "A private mobile space for couples to shape shared dreams, keep meaningful saves, and notice the little joys.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FCFBFA",
+  "theme_color": "#FCFBFA",
+  "icons": [
+    {
+      "src": "/assets/images/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

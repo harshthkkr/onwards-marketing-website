@@ -3,31 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#fcfbfa" />
     <meta
       name="description"
       content="Onwards is a shared operating system for life—turning dreams into plans, habits, and meaningful progress, together."
     />
+    <link rel="canonical" href="https://www.onwards-together.com/" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <meta property="og:title" content="Onwards — Dream it together" />
     <meta
       property="og:description"
       content="A shared place for dreams, little joys, and meaningful progress. Coming soon."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Onwards" />
+    <meta property="og:url" content="https://www.onwards-together.com/" />
+    <meta property="og:image" content="https://www.onwards-together.com/assets/images/onwards-icon.png" />
+    <meta name="twitter:card" content="summary" />
     <title>Onwards — Dream it together</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/assets/images/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+    <link rel="preload" href="/assets/fonts/PlusJakartaSans-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="stylesheet" href="/styles.css?v=20260804" />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <div class="page-shell">
       <header class="site-header">
-        <a class="brand" href="#" aria-label="Onwards home">
+        <a class="brand" href="/" aria-label="Onwards home">
           <span class="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 36 28" role="img">
               <circle cx="6" cy="19" r="3.5" />
@@ -41,7 +46,7 @@
         <span class="status-pill"><span></span> Coming soon</span>
       </header>
 
-      <main>
+      <main id="main">
         <section class="hero">
           <div class="hero-copy">
             <p class="eyebrow">A shared operating system for life</p>
@@ -51,25 +56,10 @@
               plans, little habits, and meaningful progress.
             </p>
 
-            <form class="notify-form" id="notify-form">
-              <label class="sr-only" for="email">Email address</label>
-              <div class="input-wrap">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M4 6h16v12H4z" />
-                  <path d="m4 7 8 6 8-6" />
-                </svg>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autocomplete="email"
-                  placeholder="Your email address"
-                  required
-                />
-              </div>
-              <button type="submit">Keep me posted <span aria-hidden="true">→</span></button>
-            </form>
-            <p class="form-note" id="form-note">One lovely email when we're ready. That's it.</p>
+            <div class="hero-actions">
+              <a class="primary-action" href="/support/">Contact Onwards <span aria-hidden="true">→</span></a>
+              <p class="availability">Coming soon on iOS and Android.</p>
+            </div>
           </div>
 
           <div class="hero-art" aria-label="A collection of shared dreams becoming plans">
@@ -109,13 +99,56 @@
             </div>
           </div>
         </section>
+
+        <section class="product-overview" aria-labelledby="product-title">
+          <div class="section-heading">
+            <p class="eyebrow">A private place for two</p>
+            <h2 id="product-title">Dreams, Saves, and Little Joys—together.</h2>
+            <p>Three gentle ways to hold on to what matters, without public scores, streaks, or pressure.</p>
+          </div>
+          <div class="feature-grid">
+            <article>
+              <span>01</span>
+              <h3>Dreams</h3>
+              <p>Shape the things you hope for and make meaningful progress together.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Saves</h3>
+              <p>Keep useful links and inspiration close to the dream they belong to.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Little Joys</h3>
+              <p>Notice the everyday moments worth remembering and repeating.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="privacy-overview" aria-labelledby="privacy-title">
+          <div class="privacy-copy">
+            <p class="eyebrow">Private by design</p>
+            <h2 id="privacy-title">Your shared life is not an advertising product.</h2>
+            <p>Onwards does not sell personal information, show targeted advertising, or use advertising analytics.</p>
+          </div>
+          <div class="google-data-note">
+            <h3>Signing in with Google</h3>
+            <p>If you choose Google, Onwards uses your Google account identifier, name, email address, and optional profile image only to create, secure, and identify your account.</p>
+            <p>We do not request access to Gmail, Drive, Calendar, contacts, or other Google services.</p>
+            <a href="/privacy/">Read the Privacy Policy</a>
+          </div>
+        </section>
       </main>
 
       <footer>
         <p>Made for the people rooting for each other.</p>
-        <p>© <span id="year"></span> Onwards</p>
+        <nav aria-label="Legal and support">
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+          <a href="/support/">Support</a>
+        </nav>
+        <p>© 2026 Onwards</p>
       </footer>
     </div>
-    <script src="script.js"></script>
   </body>
 </html>
