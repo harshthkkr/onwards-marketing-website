@@ -5,6 +5,7 @@
     const panels = [...flow.querySelectorAll("[data-story-panel]")];
     const floats = [...flow.querySelectorAll("[data-story-float]")];
     const next = flow.querySelector("[data-story-next]");
+    const topKicker = flow.querySelector("[data-story-kicker-top]");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let timer;
     let variantTimer;
@@ -42,6 +43,11 @@
         panel.classList.toggle("is-active", active);
         panel.setAttribute("aria-hidden", String(!active));
       });
+
+      if (topKicker) {
+        const activeKicker = panels[current]?.querySelector(".story-kicker");
+        if (activeKicker) topKicker.textContent = activeKicker.textContent;
+      }
 
       const progress = flow.querySelector(".story-progress i");
       if (progress) {
@@ -102,5 +108,12 @@
     activate(0);
     start();
   });
+
+  const header = document.querySelector(".site-header");
+  if (header) {
+    const syncStuck = () => header.classList.toggle("is-stuck", window.scrollY > 8);
+    syncStuck();
+    window.addEventListener("scroll", syncStuck, { passive: true });
+  }
 
 })();
