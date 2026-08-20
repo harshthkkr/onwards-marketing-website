@@ -9,8 +9,9 @@ Static public website for `https://www.onwards-together.com`.
 - `/terms/` — terms of service
 - `/support/` — support and account-deletion contact
 
-The site has no build step, analytics, cookies, forms, or third-party runtime
-dependencies. Fonts and brand assets are self-hosted.
+The site has no build step, analytics, cookies, or registration forms. Fonts and
+brand assets are self-hosted. The Founding 100 action opens WhatsApp with a
+prefilled message.
 
 ## Local preview
 
