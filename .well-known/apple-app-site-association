@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["M67V2KDBHF.com.app.onwards"],
+        "components": [
+          {
+            "/": "/invite",
+            "comment": "Onwards invitation links"
+          },
+          {
+            "/": "/invite/",
+            "comment": "Onwards invitation links with a trailing slash"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.app.onwards",
+      "sha256_cert_fingerprints": [
+        "2D:EE:FE:C0:C7:44:12:92:4A:AE:8C:A3:40:12:F3:5E:AF:29:C4:0F:7F:3D:D5:B3:69:E0:52:4B:8D:63:BB:5E"
+      ]
+    }
+  }
+]
