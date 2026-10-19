@@ -236,3 +236,37 @@ body[data-confirmation-mode="waitlist"] .confirmation-waitlist{display:block}
 }
 @media(prefers-reduced-motion:no-preference){.hero-phone{animation:phone-float 7s ease-in-out infinite}.dream-focus-card{animation:dream-float 7s ease-in-out infinite}.saved-inspiration-card{animation:save-float 6.2s ease-in-out infinite}.plan-card{animation:plan-float 7.4s ease-in-out infinite}.cheer-card{animation:cheer-float 5.8s ease-in-out infinite}.joy-float-card{animation:joy-float 6.8s ease-in-out infinite}.shared-space-card{animation:space-float 6.4s ease-in-out infinite}.action-card{animation:action-float 7.1s ease-in-out infinite}@keyframes phone-float{0%,100%{transform:translateX(-50%) rotate(1.5deg) translateY(0)}50%{transform:translateX(-50%) rotate(.5deg) translateY(-8px)}}@keyframes dream-float{0%,100%{transform:translateX(-50%) rotate(-1.5deg) translateY(0)}50%{transform:translateX(-50%) rotate(-.5deg) translateY(-8px)}}@keyframes save-float{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(-2deg) translateY(-7px)}}@keyframes plan-float{0%,100%{transform:rotate(3deg) translateY(0)}50%{transform:rotate(1.5deg) translateY(8px)}}@keyframes cheer-float{0%,100%{transform:rotate(5deg) translateY(0)}50%{transform:rotate(3deg) translateY(-8px)}}@keyframes joy-float{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(-2deg) translateY(7px)}}@keyframes space-float{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(-2deg) translateY(-6px)}}@keyframes action-float{0%,100%{transform:rotate(4deg) translateY(0)}50%{transform:rotate(2deg) translateY(7px)}}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}.story-scene.is-active::after{animation:none}}
+
+/* Hero app downloads */
+.hero-downloads{margin-top:44px}
+.downloads-caption{margin:0 0 14px;color:var(--stone);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.downloads-caption .caption-mobile{display:none}
+.download-cards{display:flex;flex-wrap:wrap;gap:14px}
+.download-card{display:flex;align-items:center;gap:12px;padding:9px 18px 9px 9px;border:1px solid #000;border-radius:18px;background:#0b0b0b;color:#fff;text-decoration:none;box-shadow:0 14px 30px rgba(34,30,28,.18);transition:transform .2s,box-shadow .2s}
+.download-card:hover{transform:translateY(-2px);box-shadow:0 18px 38px rgba(34,30,28,.26)}
+.download-card:focus-visible{outline:3px solid var(--ember);outline-offset:3px}
+.download-qr{width:72px;height:72px;flex:none;margin-right:4px;padding:4px;border-radius:11px;background:#fff}
+.badge-icon{width:32px;height:32px;flex:none;color:#fff;margin-left:4px}
+.download-text{display:flex;flex-direction:column;justify-content:center;gap:3px;text-align:left;white-space:nowrap}
+.download-text small{display:block;color:#e9e6e4;font-size:13px;font-weight:600;line-height:1;letter-spacing:.01em}
+.download-text b{display:block;color:#fff;font-size:22px;font-weight:800;line-height:1;letter-spacing:-.025em}
+@media(min-width:981px) and (max-width:1279px){
+  .hero-downloads{margin-top:34px}.download-cards{gap:10px}
+  .download-card{gap:7px;padding:6px 12px 6px 6px;border-radius:14px}
+  .download-qr{width:54px;height:54px;padding:3px;border-radius:8px;margin-right:0}
+  .badge-icon{width:22px;height:22px;margin-left:2px}.download-text{gap:2px}.download-text small{font-size:10px}.download-text b{font-size:16px}
+}
+@media(max-width:980px){
+  .download-cards{justify-content:center}
+}
+@media(max-width:620px){
+  .hero-downloads{margin-top:32px}
+  .downloads-caption .caption-desktop{display:none}.downloads-caption .caption-mobile{display:inline}
+  .download-cards{flex-wrap:nowrap;gap:10px;width:min(360px,100%);margin-inline:auto}
+  .download-qr{display:none}
+  .download-card{flex:1 1 0;min-width:0;min-height:56px;justify-content:center;gap:8px;padding:8px 10px;border-radius:14px}
+  .badge-icon{width:26px;height:26px;margin-left:0}.download-text{gap:3px}.download-text small{font-size:11px}.download-text b{font-size:17px}
+}
+@media(max-width:350px){
+  .download-cards{flex-direction:column;width:min(240px,100%)}
+}
