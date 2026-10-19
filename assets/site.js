@@ -117,3 +117,17 @@
   }
 
 })();
+
+// Put the visitor's own platform first on phones.
+(() => {
+  const cards = document.querySelector("[data-download-cards]");
+  if (!cards) return;
+  const ua = navigator.userAgent || "";
+  const isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const platform = /Android/i.test(ua) ? "android" : isIOS ? "ios" : null;
+  if (!platform) return;
+  const card = cards.querySelector(`[data-platform="${platform}"]`);
+  if (!card) return;
+  cards.prepend(card);
+  
+})();
