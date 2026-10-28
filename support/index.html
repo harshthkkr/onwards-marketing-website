@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index,follow">
-    <meta name="description" content="Contact Onwards for sign-in, verification, password recovery, privacy, or account-deletion help.">
+    <meta name="description" content="Share feedback, suggest an idea, report a bug, or get help with your Onwards account.">
     <meta name="theme-color" content="#FCFBFA">
     <link rel="canonical" href="https://www.onwards-together.com/support/">
     <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/assets/images/favicon-32.png" sizes="32x32" type="image/png">
     <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
-    <link rel="stylesheet" href="/assets/site.css?v=20260804">
+    <link rel="stylesheet" href="/assets/site.css?v=20261028b">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Onwards">
-    <meta property="og:title" content="Support — Onwards">
-    <meta property="og:description" content="Help with your Onwards account, sign-in, recovery, or privacy request.">
+    <meta property="og:title" content="Support &amp; feedback — Onwards">
+    <meta property="og:description" content="Feedback, ideas, bugs, or account help — we read every message.">
     <meta property="og:url" content="https://www.onwards-together.com/support/">
     <meta property="og:image" content="https://www.onwards-together.com/assets/images/onwards-icon.png">
-    <title>Support — Onwards</title>
+    <title>Support &amp; feedback — Onwards</title>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -31,57 +31,83 @@
 
     <main class="policy-main" id="main">
       <header class="policy-header">
-        <p class="eyebrow">We are here to help</p>
-        <h1>Onwards Support</h1>
-        <p class="policy-meta">For account, sign-in, privacy, and deletion assistance.</p>
+        <p class="eyebrow">Support &amp; feedback</p>
+        <h1>We’d love to hear from you.</h1>
+        <p class="policy-meta">Loving something, missing something, or stuck on something? Onwards is still young, and your feedback and ideas shape what we build next. Every message is read by a real person.</p>
       </header>
 
-      <section class="policy-section" aria-labelledby="contact">
-        <h2 id="contact">Contact us</h2>
-        <p>
-          Onwards is operated by HB Digital FZC, a company registered in the United Arab Emirates.
-          Email <a href="mailto:harsh.thakkar@hblance.com?subject=Onwards%20support">harsh.thakkar@hblance.com</a>
-          from the address connected to your Onwards account when possible. Do not
-          email your password, verification code, recovery code, private documents,
-          or authentication tokens.
-        </p>
+      <section class="contact-card" aria-labelledby="contact">
+        <h2 id="contact">Email us</h2>
+        <p>One inbox for everything — feedback, ideas, bugs, and account help.</p>
+        <div class="email-copy">
+          <code id="support-email">harsh.thakkar@hblance.com</code>
+          <button class="copy-button" type="button" data-copy-target="support-email" aria-label="Copy email address">Copy</button>
+        </div>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+        <a class="contact-open" href="mailto:harsh.thakkar@hblance.com?subject=Hello%20from%20an%20Onwards%20user">Or open your email app →</a>
       </section>
 
-      <div class="support-options">
-        <article class="support-card">
-          <h2>Sign-in or verification</h2>
-          <p>Tell us whether the problem involves email/password or Google Sign-In and include the exact non-sensitive error message shown by the app.</p>
-        </article>
-        <article class="support-card">
-          <h2>Password recovery</h2>
-          <p>Use “Forgot password?” in the app first. If no code arrives, check spam and confirm you entered the account email correctly.</p>
-        </article>
-        <article class="support-card">
-          <h2>Privacy request</h2>
-          <p>Use the subject “Onwards privacy request” and describe whether you want access, correction, export, restriction, or deletion.</p>
-        </article>
-        <article class="support-card">
-          <h2>Account deletion</h2>
-          <p>Email from the account address with the subject “Onwards account deletion request.” We may ask you to verify ownership before acting.</p>
-        </article>
-      </div>
+      <section class="policy-section" aria-labelledby="topics">
+        <h2 id="topics">What’s on your mind?</h2>
+        <p>Pick one and we’ll start the email for you.</p>
+        <div class="support-options">
+          <a class="support-card topic-card" href="mailto:harsh.thakkar@hblance.com?subject=Onwards%20feedback">
+            <span class="topic-icon" aria-hidden="true">💬</span>
+            <h3>Share feedback</h3>
+            <p>What you love, what feels off, what made you smile. The honest stuff helps most.</p>
+            <span class="topic-link">Send feedback →</span>
+          </a>
+          <a class="support-card topic-card" href="mailto:harsh.thakkar@hblance.com?subject=Onwards%20idea">
+            <span class="topic-icon" aria-hidden="true">💡</span>
+            <h3>Suggest an idea</h3>
+            <p>A feature you wish existed, or a way you’d love to use Onwards with your people.</p>
+            <span class="topic-link">Share an idea →</span>
+          </a>
+          <a class="support-card topic-card" href="mailto:harsh.thakkar@hblance.com?subject=Onwards%20bug%20report&amp;body=What%20happened%3A%0A%0AWhat%20I%20expected%3A%0A%0AiOS%20or%20Android%3A%0A%0AApprox.%20time%3A%0A">
+            <span class="topic-icon" aria-hidden="true">🐞</span>
+            <h3>Report a bug</h3>
+            <p>Something broken or confusing? Tell us what happened and we’ll look into it.</p>
+            <span class="topic-link">Report a bug →</span>
+          </a>
+          <a class="support-card topic-card" href="mailto:harsh.thakkar@hblance.com?subject=Onwards%20account%20help">
+            <span class="topic-icon" aria-hidden="true">🔑</span>
+            <h3>Account &amp; sign-in help</h3>
+            <p>Trouble signing in or verifying? Try “Forgot password?” in the app first, and check your spam folder for codes.</p>
+            <span class="topic-link">Get help →</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="policy-section" aria-labelledby="privacy-requests">
+        <h2 id="privacy-requests">Privacy &amp; your account</h2>
+        <div class="support-options">
+          <article class="support-card">
+            <h3>Privacy request</h3>
+            <p>Use the subject “Onwards privacy request” and tell us whether you want access, correction, export, restriction, or deletion.</p>
+          </article>
+          <article class="support-card">
+            <h3>Delete your account</h3>
+            <p>Email from your account address with the subject “Onwards account deletion request.” We may ask you to verify ownership before acting.</p>
+          </article>
+        </div>
+      </section>
 
       <section class="policy-section" aria-labelledby="include">
-        <h2 id="include">Helpful details to include</h2>
+        <h2 id="include">Reporting a problem? These details help</h2>
         <ul>
           <li>Your account email address.</li>
           <li>Whether you use iOS or Android.</li>
-          <li>The approximate time the issue occurred.</li>
-          <li>A description of what you expected and what happened.</li>
+          <li>Roughly when it happened.</li>
+          <li>What you expected, and what happened instead.</li>
         </ul>
         <p>
-          Please redact private content and security credentials from screenshots.
+          Please leave out passwords, verification codes, and private content (blur screenshots if needed).
           Onwards will never ask you to send a password or one-time code by email.
         </p>
       </section>
 
       <div class="callout">
-        <p>For details about information handling and your choices, read the <a href="/privacy/">Privacy Policy</a>.</p>
+        <p>Onwards is operated by HB Digital FZC, registered in the United Arab Emirates. For how we handle your information, read the <a href="/privacy/">Privacy Policy</a>.</p>
       </div>
     </main>
 
@@ -95,6 +121,7 @@
         </nav>
       </div>
     </footer>
+    <script defer src="/assets/support.js?v=20261028b"></script>
     <script defer src="/_vercel/insights/script.js"></script>
   </body>
 </html>
