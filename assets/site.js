@@ -129,5 +129,12 @@
   const card = cards.querySelector(`[data-platform="${platform}"]`);
   if (!card) return;
   cards.prepend(card);
-  
+
+  // Point the header "Get the app" button straight at this platform's store.
+  const getApp = document.querySelector("[data-get-app]");
+  if (getApp) {
+    getApp.href = card.href;
+    getApp.target = "_blank";
+    getApp.rel = "noopener";
+  }
 })();
