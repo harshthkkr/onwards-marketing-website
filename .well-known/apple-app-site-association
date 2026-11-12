@@ -11,6 +11,22 @@
           {
             "/": "/invite/",
             "comment": "Onwards invitation links with a trailing slash"
+          },
+          {
+            "/": "/dreams",
+            "comment": "Dreams tab, used by the weekly email"
+          },
+          {
+            "/": "/dreams/",
+            "comment": "Dreams tab, used by the weekly email (trailing slash)"
+          },
+          {
+            "/": "/little-joys",
+            "comment": "Plan tab, used by the daily email"
+          },
+          {
+            "/": "/little-joys/",
+            "comment": "Plan tab, used by the daily email (trailing slash)"
           }
         ]
       }
