@@ -8,6 +8,8 @@ Static public website for `https://www.onwards-together.com`.
 - `/privacy/` — privacy policy
 - `/terms/` — terms of service
 - `/support/` — support and account-deletion contact
+- `/invite/` — landing page for Space invite links when the app does not open
+- `/dreams/`, `/little-joys/` — landing pages for the email "Open Onwards" links
 
 The site has no build step, analytics, cookies, or registration forms. Fonts and
 brand assets are self-hosted.
