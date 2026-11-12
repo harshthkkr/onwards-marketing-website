@@ -5,6 +5,7 @@ Static public website for `https://www.onwards-together.com`.
 ## Structure
 
 - `/` — product landing page
+- `/vision-board-ideas/`, `/couples-vision-board/`, `/couples-bucket-list/`, `/new-years-resolutions-for-couples/` — SEO guide pages
 - `/privacy/` — privacy policy
 - `/terms/` — terms of service
 - `/support/` — support and account-deletion contact

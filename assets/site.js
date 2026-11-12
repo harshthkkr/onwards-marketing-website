@@ -1,3 +1,8 @@
+// Vercel Web Analytics queue, so clicks before the insights script loads are kept.
+window.va = window.va || function (...params) {
+  (window.vaq = window.vaq || []).push(params);
+};
+
 (() => {
   document.querySelectorAll("[data-story-flow]").forEach((flow) => {
     const triggers = [...flow.querySelectorAll("[data-story-trigger]")];
@@ -118,23 +123,69 @@
 
 })();
 
-// Put the visitor's own platform first on phones.
+// Put the visitor's own platform first on phones and point "Get the app" at its store.
 (() => {
-  const cards = document.querySelector("[data-download-cards]");
-  if (!cards) return;
   const ua = navigator.userAgent || "";
   const isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   const platform = /Android/i.test(ua) ? "android" : isIOS ? "ios" : null;
   if (!platform) return;
-  const card = cards.querySelector(`[data-platform="${platform}"]`);
-  if (!card) return;
-  cards.prepend(card);
 
-  // Point the header "Get the app" button straight at this platform's store.
-  const getApp = document.querySelector("[data-get-app]");
-  if (getApp) {
-    getApp.href = card.href;
-    getApp.target = "_blank";
-    getApp.rel = "noopener";
-  }
+  let storeHref;
+  document.querySelectorAll("[data-download-cards]").forEach((cards) => {
+    const card = cards.querySelector(`[data-platform="${platform}"]`);
+    if (!card) return;
+    cards.prepend(card);
+    storeHref = card.href;
+  });
+  if (!storeHref) return;
+
+  document.querySelectorAll("[data-get-app]").forEach((link) => {
+    link.href = storeHref;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.dataset.platform = platform;
+  });
+})();
+
+// Sticky mobile CTA: show once the hero downloads scroll away, hide near the closing CTA.
+(() => {
+  const bar = document.querySelector("[data-sticky-cta]");
+  const hero = document.querySelector(".hero-downloads");
+  const closing = document.querySelector(".closing-cta");
+  if (!bar || !hero || !("IntersectionObserver" in window)) return;
+
+  const link = bar.querySelector("a");
+  let heroVisible = true;
+  let closingVisible = false;
+  const sync = () => {
+    const show = !heroVisible && !closingVisible;
+    bar.classList.toggle("is-visible", show);
+    bar.setAttribute("aria-hidden", String(!show));
+    if (link) link.tabIndex = show ? 0 : -1;
+  };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.target === hero) heroVisible = entry.isIntersecting;
+      if (entry.target === closing) closingVisible = entry.isIntersecting;
+    });
+    sync();
+  });
+  observer.observe(hero);
+  if (closing) observer.observe(closing);
+})();
+
+// Count store clicks by platform and placement (Vercel Analytics custom event).
+(() => {
+  const storePlatform = (href) =>
+    /apps\.apple\.com/.test(href) ? "ios" : /play\.google\.com/.test(href) ? "android" : null;
+
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest?.("a[href]");
+    if (!link) return;
+    const platform = storePlatform(link.href);
+    if (!platform) return;
+    const placement =
+      link.dataset.placement || link.closest("[data-placement]")?.dataset.placement || "other";
+    window.va("event", { name: "store_click", data: { platform, placement } });
+  });
 })();
