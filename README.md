@@ -5,7 +5,8 @@ Static public website for `https://www.onwards-together.com`.
 ## Structure
 
 - `/` — product landing page
-- `/vision-board-ideas/`, `/couples-vision-board/`, `/couples-bucket-list/`, `/new-years-resolutions-for-couples/` — SEO guide pages
+- `/guides/` — searchable index of every guide; the header and footer link here, so a new guide only needs a card on this page
+- `/vision-board-ideas/`, `/vision-board-examples/`, `/how-to-make-a-vision-board/`, `/couples-vision-board/`, `/couples-bucket-list/`, `/new-years-resolutions-for-couples/` — SEO guide pages
 - `/privacy/` — privacy policy
 - `/terms/` — terms of service
 - `/support/` — support and account-deletion contact
