@@ -123,6 +123,17 @@ window.va = window.va || function (...params) {
 
 })();
 
+// Tag Google Play links with the page they were clicked on, so Play Console can attribute installs to a guide.
+(() => {
+  const campaign = window.location.pathname.replace(/^\/|\/$/g, "") || "home";
+  document.querySelectorAll('a[href*="play.google.com/store/apps/details"]').forEach((link) => {
+    const url = new URL(link.href);
+    if (url.searchParams.has("referrer")) return;
+    url.searchParams.set("referrer", `utm_source=onwards-website&utm_medium=web&utm_campaign=${campaign}`);
+    link.href = url.toString();
+  });
+})();
+
 // Put the visitor's own platform first on phones and point "Get the app" at its store.
 (() => {
   const ua = navigator.userAgent || "";
@@ -188,4 +199,50 @@ window.va = window.va || function (...params) {
       link.dataset.placement || link.closest("[data-placement]")?.dataset.placement || "other";
     window.va("event", { name: "store_click", data: { platform, placement } });
   });
+})();
+
+// Guides index: filter the guide cards as the visitor types.
+(() => {
+  const input = document.querySelector("[data-guides-search]");
+  if (!input) return;
+  const cards = [...document.querySelectorAll("[data-guide]")];
+  const groups = [...document.querySelectorAll("[data-guides-group]")];
+  const empty = document.querySelector("[data-guides-empty]");
+  const status = document.querySelector("[data-guides-status]");
+
+  const filter = () => {
+    const terms = input.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+    let shown = 0;
+    cards.forEach((card) => {
+      const text = `${card.textContent} ${card.dataset.guide}`.toLowerCase();
+      const match = terms.every((term) => text.includes(term));
+      card.hidden = !match;
+      if (match) shown += 1;
+    });
+    groups.forEach((group) => {
+      group.hidden = !group.querySelector("[data-guide]:not([hidden])");
+    });
+    if (empty) empty.hidden = shown > 0;
+    if (status) status.textContent = terms.length ? `${shown} ${shown === 1 ? "guide" : "guides"} found` : "";
+  };
+
+  input.addEventListener("input", filter);
+  filter();
+})();
+
+// Guide videos: play like a GIF while on screen, and only download once the visitor scrolls to them.
+(() => {
+  const videos = document.querySelectorAll("video[data-autoplay-in-view]");
+  if (!videos.length || !("IntersectionObserver" in window)) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        if (isIntersecting) target.play().catch(() => {});
+        else target.pause();
+      });
+    },
+    { threshold: 0.5 },
+  );
+  videos.forEach((video) => observer.observe(video));
 })();
